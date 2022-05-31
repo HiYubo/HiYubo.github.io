@@ -95,6 +95,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background: url(../img/bg.jpg) 50% no-repeat;
 }
 
 /* three 3D 容器 */

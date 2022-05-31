@@ -11,15 +11,15 @@
 
 <body>
 
-
-
-	<div id="root-div">
-		<div id="progress" class="progress">
-			<div class="mask"></div>
-			<div class="loading">
-				<div class="trends"></div>
-			</div>
+	<div id="progress" class="progress">
+		<div class="mask"></div>
+		<div class="loading">
+			<div class="trends"></div>
 		</div>
+	</div>
+
+<!-- 	<div id="root-div">
+	
 
 		<h4 class="title-div">星戟数据中心3D演示</h4>
 
@@ -31,10 +31,9 @@
 
 		<div id="container" class="container"></div>
 
-	</div>
+	</div> -->
 
 
-	<!-- 	定义浏览器中的全局模块	 -->
 	<script type="importmap">
 			{
 				"imports": {
@@ -42,10 +41,8 @@
 				}
 			}
 		</script>
-	<script type="module">// 添加 type="module" 允许执行导入导出操作 export import，缺省设置为Defer，延时执行
-		// 自动加载 ./js/libs/three/three.module.js
+	<script type="module">
 		import * as THREE from 'three';
-		// export import 引入模块
 		import { MTLLoader } from './js/libs/three/loaders/MTLLoader.js';
 		import { OBJLoader } from './js/libs/three/loaders/OBJLoader.js';
 		import { OrbitControls } from './js/libs/three/controls/OrbitControls.js';
@@ -68,9 +65,9 @@
 
 		function init() {
 
-			const container = document.getElementById('container');
-			// const container = document.createElement('div');
-			// document.body.appendChild(container);
+			// const container = document.getElementById('container');
+			const container = document.createElement('div');
+			document.body.appendChild(container);
 	
 			/*  
 				PerspectiveCamera
