@@ -34,15 +34,20 @@
 	</div> -->
 
 
-	<script type="importmap">
+	<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
 			{
 				"imports": {
 					"three": "./js/libs/three/three.module.js"
 				}
 			}
 		</script>
+
 	<script type="module">
-		import * as THREE from 'three';
+		import * as THREE from "three";
 		import { MTLLoader } from './js/libs/three/loaders/MTLLoader.js';
 		import { OBJLoader } from './js/libs/three/loaders/OBJLoader.js';
 		import { OrbitControls } from './js/libs/three/controls/OrbitControls.js';
