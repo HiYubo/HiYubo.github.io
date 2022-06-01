@@ -11,46 +11,44 @@
 
 <body>
 
+
+
+
 	<div id="progress" class="progress">
 		<div class="mask"></div>
 		<div class="loading">
-			<div class="trends"></div>
+			<span class="trends" id="trends">0%</s>
 		</div>
 	</div>
 
-<!-- 	<div id="root-div">
-	
+	<h4 class="title-div" id="title-div">星戟数据中心3D演示</h4>
 
-		<h4 class="title-div">星戟数据中心3D演示</h4>
-
-		<p class="content-div">
-			适用于金融、电信、政府、军队、传统大中型IDC、边缘IDC以及大中企业等各种数据中心
-		</p>
-
-		
-
-		<div id="container" class="container"></div>
-
-	</div> -->
+	<p class="content-div" id="content-div">
+		适用于金融、电信、政府、军队、传统大中型IDC、边缘IDC以及大中企业等各种数据中心
+	</p>
 
 
-	<!-- Import maps polyfill -->
-		<!-- Remove this when import maps will be widely supported -->
-		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+	<!-- <div id="container" class="container"></div> -->
 
-		<script type="importmap">
+
+
+	<!-- 	定义浏览器中的全局模块	 -->
+	<script type="importmap">
 			{
 				"imports": {
 					"three": "./js/libs/three/three.module.js"
 				}
 			}
 		</script>
-
+	<!-- 
+			 添加 type="module" 允许执行导入导出操作 export import，缺省设置为Defer，延时执行
+			 export import 引入模块
+		 -->
 	<script type="module">
-		import * as THREE from "three";
+		import * as THREE from 'three';
 		import { MTLLoader } from './js/libs/three/loaders/MTLLoader.js';
 		import { OBJLoader } from './js/libs/three/loaders/OBJLoader.js';
-		import { OrbitControls } from './js/libs/three/controls/OrbitControls.js';
+		import { OrbitControls } from '/js/libs/three/controls/OrbitControls.js';
 
 		let camera, scene, renderer, controls;
 
@@ -60,7 +58,7 @@
 		let windowHalfY = window.innerHeight / 2;
 
 		// 3D 模型名与对应文件名一致
-		let modelName = 'ruby_rose'
+		let modelName = 'cube'
 		let modelPath = `assets/models/${modelName}/`
 
 
@@ -73,7 +71,7 @@
 			// const container = document.getElementById('container');
 			const container = document.createElement('div');
 			document.body.appendChild(container);
-	
+
 			/*  
 				PerspectiveCamera
 				
@@ -194,11 +192,13 @@
 
 
 		function showProgress(progress) {
-			document.getElementsByClassName("trends")[0].style.width = progress + "%";
+			document.getElementById("trends").innerHTML = progress + "%";
 			if (progress < 100) {
 				document.getElementById("progress").style.display = "block";
 			} else {
 				document.getElementById("progress").style.display = "none";
+				document.getElementById("title-div").style.display = "block";
+				document.getElementById("content-div").style.display = "block";
 			}
 		}
 
